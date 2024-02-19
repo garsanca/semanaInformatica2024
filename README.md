@@ -59,7 +59,7 @@ user@host:~/ $ sycl-ls
 ```
 
 * Compilación en Laboratorio 3 en Gráficas Intel integradas: ```icpx -fsycl -o exec.intel main.cpp```
-* Compilación en Laboratorio 3 en Gráficas NVIDIA: ```icpx -fsycl -fsycl-targets=nvptx64-nvidia-cuda -o exec.cuda main.cpp``
+* Compilación en Laboratorio 3 en Gráficas NVIDIA: ```icpx -fsycl -fsycl-targets=nvptx64-nvidia-cuda -o exec.cuda main.cpp```
 
 ## Cuenta en Intel Developer Cloud
 * El [Intel® Developer Cloud](https://www.intel.com/content/www/us/en/developer/tools/devcloud/services.html) es un espacio de desarrollo **gratuito** para que la comunidad de desarrolladores puedan programar aplicaciones. 
