@@ -12,7 +12,7 @@
 
 ## Transparencias
 * Todo el material está disponible en el repositorio [github](https://github.com/garsanca/semanaInformatica2024)
-    * Puede descargarse fácilmente clonando el repositorio ejecutando en un terminal el comando ```https://github.com/garsanca/semanaInformatica2024.git```
+    * Puede descargarse fácilmente clonando el repositorio ejecutando en un terminal el comando ```git clone https://github.com/garsanca/semanaInformatica2024.git```
 * Además las transparencias del taller están disponible en el [directorio "transparencias"](transparencias/transparencias_oneAPI.pdf) 
 
 ## Laboratorios FDI
@@ -51,12 +51,15 @@ user@host:~/ $ source /opt/intel/oneapi/setvars.sh
 :: oneAPI environment initialized ::
 
 user@host:~/ $ sycl-ls 
-[opencl:0] ACC : Intel(R) FPGA Emulation Platform for OpenCL(TM) 1.2 [2021.13.11.0.23_160000]
-[opencl:0] CPU : Intel(R) OpenCL 3.0 [2021.13.11.0.23_160000]
-[opencl:0] GPU : Intel(R) OpenCL HD Graphics 3.0 [22.28.23726.1]
-[level_zero:0] GPU : Intel(R) Level-Zero 1.3 [1.3.23726]
-[host:0] HOST: SYCL host platform 1.2 [1.2]
+[opencl:acc:0] Intel(R) FPGA Emulation Platform for OpenCL(TM), Intel(R) FPGA Emulation Device 1.2 [2023.15.3.0.20_160000]
+[opencl:cpu:1] Intel(R) OpenCL, 12th Gen Intel(R) Core(TM) i7-12700 3.0 [2023.15.3.0.20_160000]
+[opencl:gpu:2] Intel(R) OpenCL HD Graphics, Intel(R) UHD Graphics 770 [0x4680] 3.0 [22.28.23726.1]
+[ext_oneapi_level_zero:gpu:0] Intel(R) Level-Zero, Intel(R) UHD Graphics 770 [0x4680] 1.3 [1.3.23726]
+[ext_oneapi_cuda:gpu:0] NVIDIA CUDA BACKEND, Quadro P400 0.0 [CUDA 12.2]
 ```
+
+* Compilación en Laboratorio 3 en Gráficas Intel integradas: ```icpx -fsycl -o exec.intel main.cpp```
+* Compilación en Laboratorio 3 en Gráficas NVIDIA: ```icpx -fsycl -fsycl-targets=nvptx64-nvidia-cuda -o exec.cuda main.cpp``
 
 ## Cuenta en Intel Developer Cloud
 * El [Intel® Developer Cloud](https://www.intel.com/content/www/us/en/developer/tools/devcloud/services.html) es un espacio de desarrollo **gratuito** para que la comunidad de desarrolladores puedan programar aplicaciones. 
@@ -396,7 +399,7 @@ user@host:~/sepia/build$ ./sepia
 Usage: ./sepia <video_filename|0 for webcam>
 user@host:~/sepia/build$ ./sepia 0
 ```
-El proyecto utiliza [OpenCV](https://opencv.org/) para facilitar el manejo de vídeo e imágenes. El ejecutable muestra en una ventana vídeo original (o el procedente de la webcam si se invoca con el argumento **0**) y la imágen procesada en tiempo real generando su equivalente en "filtrado sepia". El ejecutable tiene varias opciones que se controlan con el teclado:
+El proyecto utiliza [OpenCV](https://opencv.org/) para facilitar el manejo de vídeo e imágenes. El ejecutable muestra en una ventana vídeo original (o el procedente de la webcam si se invoca con el argumento **0**, sino se puede pasar como parámetro un vídeo como el que se puede descargar de la [URL](https://file-examples.com/storage/fe34a88a9a65cf545955ccb/2017/04/file_example_MP4_480_1_5MG.mp4)) y la imágen procesada en tiempo real generando su equivalente en "filtrado sepia". El ejecutable tiene varias opciones que se controlan con el teclado:
 - **s**: *save*/o guardado de una imagen en el archivo
 - **d**: ejecución en el **dispositivo**
 - **h**: ejecución en el **host**
